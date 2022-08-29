@@ -1,20 +1,20 @@
 const data = require('../data/zoo_data');
 
+const { species } = require('../data/zoo_data');
+
 function getSpeciesByIds(...ids) {
-  
-  
-  return [{
-    id,
-    name,
-    popularity,
-    location,
-    availability,
-    residents:
-      { name, sex, age },
-  }];
- 
+  const ret = [];
+  for (let i = 0; i < ids.length; i += 1) {
+    const idParam = ids[i];
+    for (let j = 0; j < species.length; j += 1) {
+      const specie = species[j];
+      if (specie.id === idParam) {
+        ret.push(specie);
+        break;
+      }
+    }
+  }
+  return ret;
 }
 
 module.exports = getSpeciesByIds;
-
-console.log(getSpeciesByIds('01422318-ca2d-46b8-b66c-3e9e188244ed'));
