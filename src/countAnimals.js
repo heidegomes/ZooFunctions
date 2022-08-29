@@ -2,6 +2,7 @@ const { species } = require('../data/zoo_data');
 
 function countAnimalsBySpecieName(name) {
   const animalObj = species.filter((bicho) => (bicho.name === name));
+  console.log(animalObj);
 
   return animalObj[0].residents.length;
 }
