@@ -13,6 +13,6 @@ function getAnimalsOlderThan(animal, age) {
 
   return verifyAge;
 }
-// console.log(getAnimalsOlderThan('otters', 7));
+getAnimalsOlderThan('otters', 7);
 
 module.exports = getAnimalsOlderThan;
