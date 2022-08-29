@@ -17,7 +17,3 @@ function getEmployeeByName(employeeName) {
 console.log(getEmployeeByName());
 
 module.exports = getEmployeeByName;
-
-
-    // const objRet = employees.filter((person) => (person.firstName === employeeName));
-    // console.log(objRet);
