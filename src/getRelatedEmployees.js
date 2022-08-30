@@ -47,15 +47,10 @@ const { employees } = require('../data/zoo_data');
 // }
 
 function isManager(id) {
-  employees.forEach((e) => {
+  return employees.some((e) => {
     const { managers } = e;
-    managers.forEach((i) => {
-      if (i === id) {
-        return true;
-      }
-    });
+    return managers.some((i) => i === id);
   });
-  return false;
 }
 
 function getRelatedEmployees(id) {
@@ -68,9 +63,12 @@ function getRelatedEmployees(id) {
       }
     });
   });
+  if (ret.length === 0) {
+    throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
+  }
   return ret;
 }
 
 module.exports = { isManager, getRelatedEmployees };
 
-console.log(isManager('9e7d4524-363c-416a-8759-8aa7e50c0993'));
+console.log(isManager('0e7b460e-acf4-4e17-bcb3-ee472265db83'));
