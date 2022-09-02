@@ -27,6 +27,10 @@ describe('Testes da função getOpeningHours', () => {
     // expect(getOpeningHoursThu).toThrowError('The day must be valid. Example: Monday');
     expect(() => getOpeningHours('Thu', '9:00-AM')).toThrowError('The day must be valid. Example: Monday'); 
     expect(() => getOpeningHours('Friday', '9:00-ZM')).toThrowError('The abbreviation must be \'AM\' or \'PM\'');
-    expect(() => getOpeningHours('Sunday', '09:c0-AM')).toThrow('The minutes should represent a number');
+    expect(() => getOpeningHours('Sunday', '09:c0-AM')).toThrowError('The minutes should represent a number');
+  });
+  it('Se a hora passada não estiver entre 0 e 12 ou os minutos entre 0 e 59 deve lançar uma exceção', () => {
+    expect(() => getOpeningHours('Monday', '13:00-AM')).toThrowError('The hour must be between 0 and 12');
+    expect(() => getOpeningHours('Tuesday', '9:60-AM')).toThrowError('The minutes must be between 0 and 59');
   });
 });
