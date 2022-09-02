@@ -19,5 +19,4 @@ function getOldestFromFirstSpecies(id) {
   // return Object.values(maiorIdadeAnimal);
 }
 
-
 module.exports = getOldestFromFirstSpecies;
